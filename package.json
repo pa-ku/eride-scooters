@@ -8,7 +8,8 @@
     "dev": "pnpm --recursive run dev",
     "dev:client": "pnpm --filter client run dev",
     "dev:api": "pnpm --filter api run dev",
-    "fix": "eslint --fix . && prettier --write ."
+    "fix": "eslint --fix . && prettier --write .",
+    "build": "pnpm --recursive run build"
   },
   "devDependencies": {
     "prettier": "^3.5.2",

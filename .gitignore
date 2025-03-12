@@ -10,3 +10,4 @@ api/pnpm-lock.yaml
 api/package-lock.json
 api/.env
 api/.env.local
+.vscode

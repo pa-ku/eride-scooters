@@ -64,7 +64,7 @@ Para ejecutar los test utiliza el siguiente comando
 
 ### Code Formatter
 
-Para formatear el codigo corre
+Para formatear el codigo corre 
 `pnpm run prettier`
 
 ## Clonar el proyecto

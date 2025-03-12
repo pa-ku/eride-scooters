@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "projects": {
+    "frontend": {
+      "root": "client"
+    },
+    "backend": {
+      "root": "api"
+    }
+  }
+}
