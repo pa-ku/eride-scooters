@@ -1,0 +1,20 @@
+{
+  "name": "eride-scooters",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --recursive run dev",
+    "dev:client": "pnpm --filter client run dev",
+    "dev:api": "pnpm --filter api run dev",
+    "fix": "eslint --fix . && prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "^3.5.2",
+    "eslint": "^9.21.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

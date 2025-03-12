@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: monserrat;
+  src: url(../assets/fonts/Montserrat-Regular.woff2);
+  font-weight: 400;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: monserrat, Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+}
+
+:root {
+  --paddinginline: 3em;
+  --color-gold: #005f9f;
+  --maincolor: #005f9f;
+  --main-color-250: #dbf1ff;
+  --main-color-300: #c6e8ff;
+  --main-color-350: #94d1f9;
+  --main-color-400: #59bbfd;
+  --main-color-450: #36a1e8;
+  --main-color-500: #197ec1;
+  --main-color-550: #0e6ead;
+  --main-color-600: #095588;
+  --main-color-700: #00375c;
+  --mobile: 1000px;
+
+  --primary-50: #dff2ff;
+  --primary-100: #c8e5f9;
+  --primary-200: #a4d4f4;
+  --primary-300: #7fc3f0;
+  --primary-400: #5bb2ec;
+  --primary-500: #36a1e7;
+  --primary-600: #1a8edb;
+  --primary-700: #1576b7;
+  --primary-800: #115e92;
+  --primary-900: #0d476e;
+  --primary-1000: #092f49;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  background-color: #111;
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color-500);
+  border: 3.2px solid #111;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-color-700);
+}
+
+/* SELECTION */
+::selection {
+  background: #ffbf0035;
+}
+
+.title {
+  @apply text-5xl text-primary-600;
+}
+.subtitle {
+  @apply text-4xl font-bold text-slate-500;
+}
+
+.button {
+  @apply rounded-lg bg-primary-500 px-8 py-3 text-center text-lg text-white hover:bg-primary-400;
+}
+.hyperlink {
+  @apply text-primary-600 hover:text-primary-400;
+}
+.button-alt {
+  @apply w-full rounded-lg py-3 text-lg text-primary-500 hover:bg-primary-50;
+}
+
+.input-form {
+  @apply w-full rounded-l-lg bg-gray-100 p-3 placeholder:text-gray-700;
+}

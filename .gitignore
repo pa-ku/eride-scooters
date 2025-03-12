@@ -1,0 +1,12 @@
+.env
+node_modules
+.txt
+desktop.ini
+.env.local  
+dist
+pnpm-lock.yaml
+package-lock.json
+api/pnpm-lock.yaml
+api/package-lock.json
+api/.env
+api/.env.local

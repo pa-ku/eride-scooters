@@ -1,0 +1,88 @@
+{
+  "name": "eride",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "packageManager": "pnpm@8.6.7",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "standard && node my-tests.js",
+    "fix": "standard --fix ",
+    "preview": "vite preview",
+    "prettier": "prettier --write .",
+    "cy:open": "cypress open"
+  },
+  "dependencies": {
+    "@mercadopago/sdk-react": "^0.0.14",
+    "axios": "^1.8.1",
+    "js-cookie": "^3.0.5",
+    "lucide-react": "^0.477.0",
+    "mercadopago": "^2.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-query": "^3.39.3",
+    "react-router": "^6.30.0",
+    "react-router-dom": "^6.30.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react-swc": "^3.8.0",
+    "autoprefixer": "^10.4.20",
+    "cypress": "^14.1.0",
+    "eslint-plugin-cypress": "^4.1.0",
+    "postcss": "^8.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "standard": "^17.1.2",
+    "tailwindcss": "^3.4.17",
+    "vite": "^4.5.9"
+  },
+  "eslintConfig": {
+    "env": {
+      "cypress/globals": true
+    },
+    "plugins": [
+      "cypress"
+    ],
+    "extends": [
+      "standard",
+      "plugin:cypress/recommended"
+    ]
+  },
+  "imports": {
+    "#src/*": [
+      "./src/*"
+    ],
+    "#components/*": [
+      "./src/components/*"
+    ],
+    "#assets/*": [
+      "./src/assets/*"
+    ],
+    "#services/*": [
+      "./src/services/*"
+    ],
+    "#layout/*": [
+      "./src/layout/*"
+    ],
+    "#pages/*": [
+      "./src/pages/*"
+    ],
+    "#hooks/*": [
+      "./src/hooks/*"
+    ],
+    "#context/*": [
+      "./src/context/*"
+    ],
+    "#utils/*": [
+      "./src/utils/*"
+    ],
+    "#data/*": [
+      "./src/data/*"
+    ],
+    "#lib/*": [
+      "./src/libs/*"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes favIn {
+  0% {
+    scale: 0;
+  }
+  95% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+@keyframes favOut {
+  to {
+    scale: 1;
+    opacity: 0;
+  }
+}
+
+.animate-opacity {
+  animation: opacity 300ms forwards;
+}
+
+.animate-skeleton {
+  animation: skeleton 1s infinite;
+}
+
+@keyframes skeleton {
+  0% {
+    background-color: #cbcbcb;
+  }
+  50% {
+    background-color: #dbdbdb;
+  }
+  100% {
+    background-color: #cbcbcb;
+  }
+}

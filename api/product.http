@@ -1,0 +1,67 @@
+### REGISTER
+POST http://localhost:3000/api/user/register
+Content-Type: application/json
+
+{
+  "name":"test",
+  "lastname": "test",
+  "email": "test@gmail.com",
+  "password": "12345678",
+  "role":"user"
+}
+
+### Get All
+GET http://localhost:3000/api/scooters
+
+
+### Get All
+GET http://localhost:3000/api/scooters/filter/featured
+
+
+### Get All
+GET http://localhost:3000/api/scooters/filter/bestOffers
+
+
+###
+POST https://eride-api.vercel.app/api/user/login
+Content-Type: application/json
+
+{
+  "email": "test@gmail.com",
+  "password": "12345678"
+}
+
+
+### Get One
+GET http://localhost:3000/api/scooters/66e4906be4f50256a4d1f2b5
+
+
+### GET MANY
+POST http://localhost:3000/api/scooters/multiple
+Content-Type: application/json
+
+{
+  "ids": ["66e4906be4f50256a4d1f2b9", "66e4906be4f50256a4d1f2b6"]
+}
+
+### DELETE One by id
+DELETE http://localhost:5000/api/scooters/66e48c2575b6b2509c12de9a
+
+### Create One
+POST http://localhost:5000/api/scooters
+Content-Type: application/json
+
+{
+  "title": "test",
+    "description":
+      "description",
+   "brand": "inmotion",
+    "images": ["https://http2.mlstatic.com/D_NQ_NP_2X_976514-MLA72441238528_102023-F.webp"],
+    "price": 100,
+    "specs": [
+      {
+        "name": "Velocidad máxima",
+        "info": "110 km/h | 0-50 km/h en 3,5 segundos"
+      }
+    ]
+}
