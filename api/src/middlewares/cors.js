@@ -4,6 +4,7 @@ const allowedOrigins = [
   'https://eridestore.netlify.app',
   'https://eridestore.vercel.app',
   'https://eride.paku.com.ar',
+  'https://www.eride.paku.com.ar',
   'http://localhost:3000',
   'http://localhost:5172',
   'http://localhost:5173',
