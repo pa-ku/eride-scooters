@@ -3,71 +3,69 @@
 </div>
 <div align="center"> 
   <p>
-  E-ride es un e-commerce de monopatines eléctricos con compras online a través de Mercado Pago, validación de usuarios, gestión de favoritos y una interfaz administrativa con funcionalidad CRUD para productos. Incluye una UI intuitiva y un sistema de pagos sencillo.
+  E-Ride is an e-commerce platform for electric scooters, offering online purchases through Mercado Pago, user validation, favorites management, and an administrative interface with CRUD functionality for products. It features an intuitive UI and a simple payment system.
 </p>
 <a href="https://eride.paku.com.ar/">eride.paku.com.ar</a>
 </div>
 
-### 💻 Tecologias
+### 💻 Technologies
 
 `React` `Express` `Zod` `MongoDb` `Bcrypt` `Tailwind` `JWT` `Mercadopago` `Vite` `Cypress`
 
-### 🌟 Características Principales
+### 🌟 Key Features
 
-- **Catálogo de productos:** Los usuarios pueden ver una lista de monopatines eléctricos disponibles, con detalles de cada producto.
-- **CRUD:** Desde la sección de administración, se pueden **crear**, **eliminar** o **modificar** productos del catálogo.
-- **Filtro de productos:** Los usuarios pueden buscar y filtrar los monopatines según características como precio y marca.
-- **Pagos Online:** Integración con **MercadoPago** para procesar pagos de forma segura y eficiente.
-- **Autenticación y Seguridad:** Uso de `useContext` para proteger rutas, asegurando que ciertas secciones (como el admin, o favorites) solo sean accesibles con un **token de autenticación** válido, generado con JWT
-- **Manejo de errores:** El backend valida los datos utilizando **Zod**, lo que asegura que los datos sean correctos antes de ser procesados o almacenados en la base de datos.
+- **Product Catalog:** Users can browse a list of available electric scooters with detailed product information.
+- **CRUD Operations:** The admin section allows creating, deleting, or modifying products in the catalog.
+- **Product Filtering:** Users can search and filter scooters based on characteristics like price and brand.
+- **Online Payments:** Integration with **MercadoPago** for secure and efficient payment processing.
+- **Authentication & Security:** Uses `useContext` to protect routes, ensuring certain sections (like admin or favorites) are only accessible with a valid **authentication token** generated with JWT.
+- **Error Handling:** The backend validates data using **Zod**, ensuring data correctness before processing or storing in the database.
 
 ## Endpoints
 
-### Productos
+### Products
 
-- GET api/scooters/ =
+- GET api/scooters/
 
-  - Regresa todos los productos
+  - Returns all products
 
 - GET api/scooters/:id
 
-  - Busca un solo producto por id
+  - Retrieves a single product by ID
 
 - GET api/scooters/filter/:type
 
-  - Toma 3 filtros, la busqueda por más vendidos
-  - El producto destacado del dia
-  - Las mejores ofertas
+  - Supports three filters: most popular products, daily featured product, and best deals
 
 - POST api/scooters/
-  - Crea un nuevo recurso
+  - Creates a new product
 
-### Usuarios
+### Users
 
 - GET api/users/
 
-  - Obtiene la lista de usuarios
+  - Retrieves the list of users
 
 - GET api/users/:id
 
-  - Obtiene el usuario mediante su id
+  - Retrieves a user by their ID
 
 - DELETE api/users/:id
-  - Elimina el usuario indicado
+  - Deletes the specified user
 
 ## Scripts
 
-### Test con cypress
+### Testing with Cypress
 
-Para ejecutar los test utiliza el siguiente comando
+To run the tests, use the following command:
 `pnpm run cd:open`
 
 ### Code Formatter
 
-Para formatear el codigo corre 
+To format the code, run:
 `pnpm run prettier`
 
-## Clonar el proyecto
+## Cloning the Project
 
 ```
 git clone https://github.com/pa-ku/eride-store.git
@@ -75,4 +73,3 @@ git clone https://github.com/pa-ku/eride-store.git
 
 ```
 pnpm install
-```

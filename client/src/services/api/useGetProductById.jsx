@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { API_ROUTE } from './API_ROUTE'
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 
 export default function useGetProductById (productId) {
   return useQuery({
