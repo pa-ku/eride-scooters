@@ -3,7 +3,7 @@ import z from 'zod'
 export const scooterSchema = z.object({
   title: z.string({ required_error: 'El nombre es requerido' }),
   description: z.string().optional(),
-  filter: z.string().optional(),
+  tag: z.string().optional(),
   price: z.number({ required_error: 'El precio es requerido' }),
   images: z.array(z.string(), {
     required_error: 'Debes ingresar al menos una imagen',

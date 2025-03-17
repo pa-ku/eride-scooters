@@ -8,7 +8,7 @@ const scooterSchema = new mongoose.Schema(
       trim: true,
       unique: true,
     },
-    filter: {
+    tag: {
       type: String,
       trim: true
     },

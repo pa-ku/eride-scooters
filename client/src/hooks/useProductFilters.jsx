@@ -1,44 +1,35 @@
 import { useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-export function useProductFilters () {
+export function useProductFilters() {
   const [searchParams, setSearchParams] = useSearchParams()
 
-  const category = searchParams.get('category')
+  const brand = searchParams.get('brand')
   const sortBy = searchParams.get('sortBy')
 
-  // Siempre que se retorne una funcion en un hook usar el useCallback
+  /* 
+  @params Add filters to the URL
+  @returns void
+  @param filters {Object} - The filters to add to the URL
+   */
+
   const setFilters = useCallback(
     (filters) => {
       setSearchParams((prev) => {
         const newParams = new URLSearchParams(prev)
 
-        // Handle search parameter
-        if (filters.search !== undefined) {
-          filters.search
-            ? newParams.set('search', filters.search)
-            : newParams.delete('search')
-        }
-
-        // Handle category parameter
-        if (filters.category !== undefined) {
-          filters.category
-            ? newParams.set('category', filters.category)
-            : newParams.delete('category')
-        }
-
-        // Handle sortBy parameter
-        if (filters.sortBy !== undefined) {
-          filters.sortBy
-            ? newParams.set('sortBy', filters.sortBy)
-            : newParams.delete('sortBy')
-        }
-
+        Object.entries(filters).forEach(([filterKey, filterValue]) => {
+          if (!filterValue) {
+            newParams.delete(filterKey)
+          } else {
+            newParams.set(filterKey, filterValue)
+          }
+        })
         return newParams
       })
     },
-    [setSearchParams]
+    [setSearchParams],
   )
 
-  return { category, sortBy, setFilters }
+  return { brand, sortBy, setFilters,searchParams }
 }

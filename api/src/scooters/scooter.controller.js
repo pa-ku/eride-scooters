@@ -1,11 +1,37 @@
 import Scooter from './scooter.model.js'
 import { connectDb } from '../libs/connectDb.js'
 
+
+export const getAll = async (req, res) => {
+  try {
+    await connectDb()
+    const { brand, tag } = req.query
+
+    const filter = {}
+    if (brand !== undefined) filter.brand = brand
+    if (tag !== undefined) filter.tag = tag
+
+    const itemsFiltered = await Scooter.find(filter)
+      .select('title coverImage price discount _id brand')
+      .lean()
+
+    if (!itemsFiltered.length) {
+      return res.status(404).json({ error: 'No se encontraron elementos' })
+    }
+    res.json(itemsFiltered)
+  } catch (error) {
+    res
+      .status(400)
+      .json({ error: 'Error al obtener los elementos', details: error.message })
+  }
+}
+
+
 export async function getNames(req, res) {
   try {
     await connectDb()
     const itemsByName = await Scooter.find().select('title _id').lean()
-    res.json(itemsByName)
+    return res.json(itemsByName)
   } catch (error) {
     res
       .status(400)
@@ -13,20 +39,6 @@ export async function getNames(req, res) {
   }
 }
 
-export const getAll = async (req, res) => {
-  try {
-    await connectDb()
-    const allItems = await Scooter.find()
-      .select('title coverImage price discount _id brand')
-      .lean()
-
-    res.json(allItems)
-  } catch (error) {
-    res
-      .status(400)
-      .json({ error: 'Error al obtener los elementos', details: error.message })
-  }
-}
 
 
 export const getOneById = async (req, res) => {
@@ -133,8 +145,8 @@ export const getScootersByFilter = async (req, res) => {
     const type = req.params.type
 
     const filters = {
-      featured: { filter: 'featured' },
-      bestSellers: { filter: 'bestSeller' },
+      featured: { tag: 'featured' },
+      bestSellers: { tag: 'bestSeller' },
       bestOffers: { discount: { $gte: 20 } },
     }
     const filter = filters[type]
