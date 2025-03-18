@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 
 import { formatPrice } from '#utils/formatPrice.js'
 import { calcDiscount } from '#utils/calcDiscount.js'
-import { ShoppingCart, Share2 } from 'lucide-react'
+import { ShoppingCart } from 'lucide-react'
 
 import FavButton from '#components/FavButton.jsx'
-import Shipping from './Shipping'
+import ShippingModal from './ShippingModal'
 export default function HeaderInfo ({
   title,
   price,
@@ -25,7 +25,7 @@ export default function HeaderInfo ({
               <span key={star}>★</span>
             ))}
           </div>
-          <span className='ml-2 text-gray-600'>128 reviews</span>
+          <span className='ml-2 text-gray-600'>{Math.floor(Math.random() *125)} reviews</span>
         </div>
 
         {!discount && (
@@ -55,24 +55,23 @@ export default function HeaderInfo ({
             Comprar
           </button>
           {shipping && (
-            <Shipping
+            <ShippingModal
               title={title}
               price={price}
               shipping={shipping}
               setShipping={setShipping}
             />
           )}
-          <button title='Compartir' className='rounded-lg bg-gray-100 p-3'>
+    {/*       <button title='Compartir' className='rounded-lg bg-gray-100 p-3'>
             <Share2 size={20} />
-          </button>
+          </button> */}
           <label
             title='Agregar Favorito'
-            className='group flex cursor-pointer items-center justify-center rounded-lg bg-gray-100 p-1 duration-300'
+            className='group flex cursor-pointer items-center justify-center rounded-lg hover:bg-red-400 bg-red-500 p-1 duration-300'
           >
             <FavButton productId={id} />
           </label>
         </div>
-
         <ShippingInfo />
       </div>
     </>
