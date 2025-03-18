@@ -5,19 +5,23 @@ import { connectDb } from '../libs/connectDb.js'
 export const getAll = async (req, res) => {
   try {
     await connectDb()
-    const { brand, tag } = req.query
+    const { brand, tag,sortBy } = req.query
 
     const filter = {}
     if (brand !== undefined) filter.brand = brand
     if (tag !== undefined) filter.tag = tag
 
-    const itemsFiltered = await Scooter.find(filter)
-      .select('title coverImage price discount _id brand')
-      .lean()
+    let sortOrder = {}
+    if (sortBy === 'minmax') sortOrder.price = 1 
+    if (sortBy === 'maxmin') sortOrder.price = -1 
+  
+
+    const itemsFiltered = await Scooter.find(filter).select('title coverImage price discount _id brand').sort(sortOrder).lean()
 
     if (!itemsFiltered.length) {
       return res.status(404).json({ error: 'No se encontraron elementos' })
     }
+  
     res.json(itemsFiltered)
   } catch (error) {
     res

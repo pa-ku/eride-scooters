@@ -3,15 +3,9 @@ import { useSearchParams } from 'react-router-dom'
 
 export function useProductFilters() {
   const [searchParams, setSearchParams] = useSearchParams()
-
+ 
   const brand = searchParams.get('brand')
   const sortBy = searchParams.get('sortBy')
-
-  /* 
-  @params Add filters to the URL
-  @returns void
-  @param filters {Object} - The filters to add to the URL
-   */
 
   const setFilters = useCallback(
     (filters) => {
