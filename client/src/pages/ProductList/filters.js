@@ -9,7 +9,7 @@ export const PRODUCT_FILTERS = {
   ],
 
   orderBy: [
-    { label: 'Menor Precio', value: 'minmax' },
     { label: 'Mayor Precio', value: 'maxmin' },
+    { label: 'Menor Precio', value: 'minmax' },
   ],
 }

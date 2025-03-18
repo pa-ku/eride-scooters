@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import ProductCard from '#components/ProductCard'
 import ProductListFilters from './components/ProductListFilters'
 import { fetchProducts } from './fetchProducts'
+import { calcDiscount } from '#src/utils/calcDiscount.js'
 
 
 export default function ProductList() {
@@ -25,11 +26,28 @@ export default function ProductList() {
           {loading && <p>Cargando...</p>}
           {error && <p>{error.message}</p>}
           {data &&
-            data.map((productData, index) => (
-              <ProductCard key={index} productData={productData} />
+            sortProducts(data, sortBy).map((productData) => (
+              <ProductCard key={productData._id} productData={productData} />
             ))}
         </div>
       </main>
     </div>
   )
+}
+
+function sortProducts(data, sortBy) {
+  if (!sortBy) return data; // Si no hay sortBy, devolvemos el array sin modificar
+
+  return data.sort((a, b) => {
+    const finalPriceA = calcDiscount(a.price, a.discount);
+    const finalPriceB = calcDiscount(b.price, b.discount);
+
+    if (sortBy === 'minmax') {
+      return finalPriceA - finalPriceB;
+    } else if (sortBy === 'maxmin') {
+      return finalPriceB - finalPriceA;
+    }
+
+    return 0; // Si no hay un sortBy válido, no modificamos el orden
+  });
 }

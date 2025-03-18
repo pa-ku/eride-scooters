@@ -38,7 +38,7 @@ export default function ProductCard ({ productData }) {
               {discount && (
                 <>
                   <div className='flex gap-2 text-xl md:gap-0'>
-                    ${discount && calcDiscount(price, discount)}
+                    ${discount && formatPrice(calcDiscount(price, discount)) }
                     <div className='right-2 z-10 md:left-2 md:hidden'>
                       <FavButton id={id} />
                     </div>
